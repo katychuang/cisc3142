@@ -6,6 +6,21 @@ on:
     branches: [main]  # limit to main branch
 
 jobs:
+  build-lab1-gcc48:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/cache@v2
+        with:
+          path: /tmp
+          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+      - name: compiler version
+        run: |
+            gcc --version
+            g++ --version
+      - uses: actions/checkout@v2
+      - name: build
+        run: cd 01_primitives && g++ file_in.cpp -std=c++98 -o file_in && ./file_in
   build-lab1:
     runs-on: ubuntu-latest
     container:
