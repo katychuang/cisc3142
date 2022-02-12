@@ -8,12 +8,10 @@ jobs:
   build-and-test-helloworld:
     runs-on: ubuntu-latest
     defaults:
-      run:
-        working-directory: 00_helloworld/cpp
     steps:
       - name: install cppunit
         run: sudo apt install -y libcppunit-dev
       - name: make
-        run: make
-      - name: make test
+        run: make helloworld
+      - name: make test-helloworld
         run: make test
