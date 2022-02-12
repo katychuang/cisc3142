@@ -5,7 +5,7 @@ on:
     branches: [main]  # limit to main branch
 
 jobs:
-  build-and-test helloworld:
+  build-and-test-helloworld:
     runs-on: ubuntu-latest
     defaults:
       run:
