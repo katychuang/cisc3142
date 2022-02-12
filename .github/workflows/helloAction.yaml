@@ -10,8 +10,8 @@ jobs:
     steps:
       - name: install cppunit
         run: sudo apt install -y libcppunit-dev
-      - name: configure
-        run: cd 00_helloworld/cpp && ./configure
+      - name: cd 
+        run: cd 00_helloworld/cpp
       - name: make
         run: make
       - name: make test
