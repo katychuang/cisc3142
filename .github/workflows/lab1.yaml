@@ -1,0 +1,19 @@
+# This is an example for lab1
+name: Lab1 Sample Run
+
+on:
+  push:
+    branches: [main]  # limit to main branch
+
+jobs:
+  build-lab1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: gcc
+        run: sudo apt-get install g++-4.8
+        run: sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50
+      - name: g++ version
+        run: g++ -version
+      - name: make
+        run: make lab1
