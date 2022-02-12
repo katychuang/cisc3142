@@ -8,10 +8,11 @@ on:
 jobs:
   build-lab1:
     runs-on: ubuntu-latest
+    container:
+      image: scientificlinux/sl:7
+    
     steps:
       - uses: actions/checkout@v2
-      - name: gcc
-        run: sudo apt-get install g++-4.8 && sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50
       - name: g++ version
         run: g++ -version
       - name: make
