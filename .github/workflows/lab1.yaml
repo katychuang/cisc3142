@@ -1,4 +1,5 @@
 # This is an example for lab1
+
 name: Lab1 Sample Run
 
 on:
@@ -10,10 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/cache@v2
-        with:
-          path: /tmp
-          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
       - name: compiler version
         run: |
             gcc --version
@@ -21,24 +18,3 @@ jobs:
       - uses: actions/checkout@v2
       - name: build
         run: cd 01_primitives && g++ file_in.cpp -std=c++98 -o file_in && ./file_in
-  build-lab1:
-    runs-on: ubuntu-latest
-    container:
-      image: scientificlinux/sl:7
-    
-    steps:
-      - uses: actions/cache@v2
-        with:
-          path: /tmp
-          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
-      - name: install gcc and make 
-        run: |
-            yum update
-            yum -y -q install gcc-c++ make 2>&1 | grep -v "already installed and latest version"
-      - name: compiler version
-        run: |
-            gcc --version
-            g++ --version
-      - uses: actions/checkout@v2
-      - name: make
-        run: make lab1
