@@ -13,8 +13,8 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-      - name: install development tools
-        run: yum groupinstall 'Development Tools'
+      - name: install gcc and make 
+        run: yum install gcc-c++ make
       - name: gcc version
         run: gcc --version
       - name: g++ version
