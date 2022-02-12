@@ -14,10 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: install gcc and make 
-        run: yum install gcc-c++ make
-      - name: gcc version
-        run: gcc --version
-      - name: g++ version
-        run: g++ --version
+        run: |
+            yum update
+            yum -y install gcc-c++ make
+      - name: compiler version
+        run: |
+            gcc --version
+            g++ --version
       - name: make
         run: make lab1
