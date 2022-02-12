@@ -12,7 +12,6 @@ jobs:
       image: scientificlinux/sl:7
     
     steps:
-      - uses: actions/checkout@v2
       - name: install gcc and make 
         run: |
             yum update
@@ -21,5 +20,6 @@ jobs:
         run: |
             gcc --version
             g++ --version
+      - uses: actions/checkout@v2
       - name: make
         run: make lab1
