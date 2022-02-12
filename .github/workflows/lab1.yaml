@@ -12,6 +12,10 @@ jobs:
       image: scientificlinux/sl:7
     
     steps:
+      - uses: actions/cache@v2
+        with:
+          path: /tmp
+          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
       - name: install gcc and make 
         run: |
             yum update
