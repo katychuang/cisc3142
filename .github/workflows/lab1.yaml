@@ -15,7 +15,7 @@ jobs:
       - name: install gcc and make 
         run: |
             yum update
-            yum -y install gcc-c++ make
+            yum -y -q install gcc-c++ make 2>&1 | grep -v "already installed and latest version"
       - name: compiler version
         run: |
             gcc --version
