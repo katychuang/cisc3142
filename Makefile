@@ -5,9 +5,9 @@ helloworld:
 test-helloworld:
 	cd 00_helloworld/cpp && chmod +x helloworld && ./helloTest
 
-lab1:
+lab1: 01_primitives/lab1.o
 	echo "Example for running lab1"
-	cd 01_primitives && g++ file_in.cpp -o file_in && ./file_in
+	cd 01_primitives && g++ lab1.cpp -o lab1 && ./lab1
 
 clean:
 	cd 00_helloworld/cpp && $(RM) helloworld helloTest
