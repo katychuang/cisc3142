@@ -15,3 +15,5 @@ jobs:
         run: make helloworld
       - name: make test
         run: make test-helloworld
+      - name: break
+        run: make blah
